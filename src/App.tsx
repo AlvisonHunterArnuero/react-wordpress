@@ -1,20 +1,17 @@
 import { useContext, useEffect } from 'react';
 import DataContext from './DataProviderContext';
 
-import './App.css';
 import Card from './components/Card';
 
 function App() {
   const { data, fetchData } = useContext(DataContext);
-  console.log(data);
-
-      useEffect(() => {
-        fetchData();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, []);
+  useEffect(() => {
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
-    <div className="flex flex-row gap-x-40">
+    <div className="flex flex-auto flex-col justify-center items-center">
       {data.map((item) => {
         const {
           id,

@@ -153,3 +153,18 @@ export interface Cury {
     href: string
     templated: boolean
 }
+
+// Card Component Custom Types
+export type cardDataObj = {
+    id: number;
+    title: { rendered: string };
+    excerpt: { rendered: string | TrustedHTML };
+    date: string;
+    jetpack_featured_media_url: string;
+    meta?: {
+        reader_suggested_tags: string[];
+    }
+};
+export type CardProps = {
+    cardData: cardDataObj;
+};

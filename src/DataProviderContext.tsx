@@ -1,10 +1,6 @@
 import { createContext, useState} from 'react';
-import {FetchedDataProps} from './Types'
-
-interface DataContextProps {
-  data: FetchedDataProps[];
-  fetchData: () => void;
-}
+import { DataContextProps } from './Types';
+import * as Sentry from '@sentry/react';
 
 const DataContext = createContext<DataContextProps>({
   data: [],
@@ -16,18 +12,22 @@ export const DataProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-    const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
-    const apiUrl =
-      'https://public-api.wordpress.com/wp/v2/sites/alvisonhunter.wordpress.com/posts';
+  const publicAPIDomain = 'https://public-api.wordpress.com';
+  const domainSuffix = '/wp/v2/sites';
+  const userDomain = 'alvisonhunter.wordpress.com/posts';
+
+  const apiUrl = `${publicAPIDomain}${domainSuffix}/${userDomain}`;
 
   const fetchData = async () => {
     try {
       const response = await fetch(apiUrl);
-        const newData = await response.json();
+      const newData = await response.json();
       setData(newData);
     } catch (error) {
       console.error('Error fetching data:', error);
+      Sentry.captureException(new Error('Error Fetching Data'));
     }
   };
 

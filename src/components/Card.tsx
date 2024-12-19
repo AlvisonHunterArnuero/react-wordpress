@@ -3,9 +3,9 @@ import { getHumanReadableDate } from '../utils';
 
 function Card(props: CardProps) {
   return (
-    <div className="max-w-[380px] mb-3 block mx-auto">
-      <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
-        <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-96">
+    <div className="max-w-[480px] min-w-[380px] mx-auto my-4">
+      <div className="relative flex flex-col text-gray-700 bg-slate-200 shadow-md bg-clip-border rounded-xl w-96">
+        <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-slate-200 bg-clip-border rounded-xl h-96">
           <img
             src={props.cardData.jetpack_featured_media_url}
             alt={props.cardData.title.rendered}
@@ -14,7 +14,7 @@ function Card(props: CardProps) {
         </div>
         <div className="p-6">
           <div className="flex items-center justify-between mb-2">
-            <p className="block mx-auto font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
+            <p className="uppercase block mx-auto font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
               <span
                 dangerouslySetInnerHTML={{
                   __html: props.cardData.title.rendered,
@@ -40,7 +40,7 @@ function Card(props: CardProps) {
         </div>
         <div className="p-6 pt-0">
           <button
-            className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg shadow-gray-900/10 hover:shadow-gray-900/20 focus:opacity-[0.85] active:opacity-[0.85] active:shadow-none block w-full bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+            className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
             type="button"
           >
             Leer Mas...
@@ -48,7 +48,7 @@ function Card(props: CardProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default Card;

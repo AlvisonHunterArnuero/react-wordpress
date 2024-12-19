@@ -168,3 +168,9 @@ export type cardDataObj = {
 export type CardProps = {
     cardData: cardDataObj;
 };
+
+// DataProvider Custom Types
+export interface DataContextProps {
+    data: FetchedDataProps[];
+    fetchData: () => void;
+}

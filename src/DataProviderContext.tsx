@@ -1,6 +1,7 @@
 import { createContext, useState} from 'react';
 import { DataContextProps, FetchedDataProps } from './Types';
 import * as Sentry from '@sentry/react';
+import { initSentry } from './utils';
 
 /**
  * React Context to provide data and fetch functionality across the application.
@@ -47,7 +48,9 @@ export const DataProvider = ({
       setData(newData);
     } catch (error) {
       console.error('Error fetching data:', error);
-      Sentry.captureException(new Error(`Error Fetching Data: ${error}`));
+      Sentry.captureException(
+        new Error(`Error Fetching Data: ${error}`)
+      );
     }
   };
 

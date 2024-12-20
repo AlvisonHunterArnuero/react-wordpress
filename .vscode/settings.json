@@ -1,0 +1,20 @@
+{
+    "eslint.format.enable": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.fixAll.stylelint": "explicit",
+        "source.fixAll.tslint": "explicit"
+    },
+    "eslint.workingDirectories": [
+        {
+            "mode": "auto"
+        }
+    ],
+    "prettier.endOfLine": "lf",
+    "prettier.semi": true,
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 2,
+    "files.associations": {
+        "*.css": "tailwindcss"
+    }
+}

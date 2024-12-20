@@ -11,7 +11,7 @@ function App() {
   }, []);
 
   return (
-    <div className="w-screen flex flex-col border-2 p-4 h-screen bg-yellow-500">
+    <div className="flex flex-wrap justify-center">
       {data.map((item) => {
         const {
           id,
@@ -19,7 +19,7 @@ function App() {
           excerpt,
           date,
           jetpack_featured_media_url,
-        } = item
+        } = item;
         return (
           <Card
             key={item.id}
@@ -31,10 +31,10 @@ function App() {
               jetpack_featured_media_url,
             }}
           />
-        )
+        );
       })}
     </div>
-  )
+  );
 }
 
 export default App;

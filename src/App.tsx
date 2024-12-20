@@ -11,7 +11,7 @@ function App() {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center">
+    <div className="flex flex-wrap min-h-screen gap-4 p-4">
       {data.map((item) => {
         const {
           id,

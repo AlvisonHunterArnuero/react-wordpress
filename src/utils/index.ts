@@ -1,9 +1,5 @@
 import * as Sentry from '@sentry/react';
 
-export const getHumanReadableDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString();
-}
-
 export const initSentry = () => {
     if (import.meta.env.MODE === 'development') {
         const sentryDsn = import.meta.env.VITE_SENTRY_DSN
@@ -32,3 +28,22 @@ export const initSentry = () => {
         }
     }
 };
+
+export const getHumanReadableDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString();
+}
+
+export function getCurrentDate(): string {
+    return new Date()
+        .toLocaleDateString('en-US', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+        })
+        .replace(
+            /(\d+)(?=,)/,
+            (match) =>
+                `${match}${['st', 'nd', 'rd'][(((+match % 100) - 20) % 10) - 1] || 'th'
+                }`
+        );
+}

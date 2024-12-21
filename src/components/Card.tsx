@@ -1,16 +1,17 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { CardProps } from '../Types';
 import { getHumanReadableDate } from '../utils';
 
-function Card(props: CardProps) {
+const Card: React.FC<CardProps> = (props) => {
   const [isLoading, setIsLoading] = useState(true);
+
   const handleImageLoad = () => {
     setIsLoading(false);
   };
 
   return (
-    <div className="max-w-[720px] mx-auto p-2 basis-1/3">
-      <div className="relative flex flex-col bg-slate-800 shadow-md bg-clip-border rounded-xl w-[400px] h-[750px]">
+    <div className="lg:basis-1/3 md:basis-1/3 sm:basis-full gap-4 my-4">
+      <div className="flex flex-col bg-slate-800 shadow-md bg-clip-border rounded-xl w-96 h-[750px]">
         <div className="relative mx-4 mt-4 overflow-hidden bg-clip-border rounded-xl h-96">
           <img
             src={props.cardData.jetpack_featured_media_url}
@@ -62,6 +63,6 @@ function Card(props: CardProps) {
       </div>
     </div>
   );
-}
+};
 
 export default Card;

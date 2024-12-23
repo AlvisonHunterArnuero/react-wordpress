@@ -4,7 +4,7 @@ import { getCurrentDate } from '../utils';
 const Footer: React.FC = () => {
     const displayDate = getCurrentDate();
   return (
-    <footer className="bg-white shadow dark:bg-slate-600 z-40 fixed bottom-0">
+    <footer className="bg-white shadow dark:bg-slate-600 z-40 fixed bottom-0 border mx-auto max-w-screen-xl">
       <div className="w-screen max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
         <span className="text-sm text-gray-600 sm:text-center dark:text-gray-400">
           {displayDate}

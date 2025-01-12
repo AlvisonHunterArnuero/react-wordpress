@@ -10,7 +10,7 @@ const Card: React.FC<CardProps> = (props) => {
   };
 
   return (
-    <div className="lg:basis-1/3 md:basis-1/3 sm:basis-full gap-4 my-4">
+    <div className="lg:basis-1/3 md:basis-1/3 sm:basis-full gap-4 my-2">
       <div className="flex flex-col bg-slate-800 shadow-md bg-clip-border rounded-xl w-96 h-[750px]">
         <div className="relative mx-4 mt-4 overflow-hidden bg-clip-border rounded-xl h-96">
           <img
@@ -18,9 +18,7 @@ const Card: React.FC<CardProps> = (props) => {
             alt={props.cardData.title.rendered}
             onLoad={handleImageLoad}
             className={
-              isLoading
-                ? 'opacity-0'
-                : 'opacity-100 transition-opacity duration-300 object-cover w-full h-full'
+              isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-300 object-cover w-full h-full'
             }
           />
         </div>

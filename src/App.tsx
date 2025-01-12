@@ -9,21 +9,14 @@ function App() {
   const { data, fetchData } = useContext(DataContext);
   useEffect(() => {
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className="flex flex-col w-screen max-w-screen-xl">
+    <div className="flex flex-col w-screen max-w-screen-xl justify-center items-center mx-auto">
       <Header />
-      <div className="flex p-2 h-screen w-screen max-screen-xl flex-wrap">
+      <div className="w-full flex flex-wrap justify-center md:justify-between">
         {data.map((item) => {
-          const {
-            id,
-            title,
-            excerpt,
-            date,
-            jetpack_featured_media_url,
-          } = item;
+          const { id, title, excerpt, date, jetpack_featured_media_url } = item;
           return (
             <Card
               key={item.id}

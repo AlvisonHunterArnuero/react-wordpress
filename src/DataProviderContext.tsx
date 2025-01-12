@@ -1,7 +1,6 @@
-import { createContext, useState} from 'react';
+import React, { createContext, useState } from 'react';
 import { DataContextProps, FetchedDataProps } from './Types';
 import * as Sentry from '@sentry/react';
-import { initSentry } from './utils';
 
 /**
  * React Context to provide data and fetch functionality across the application.
@@ -17,11 +16,7 @@ const DataContext = createContext<DataContextProps>({
  * @param {React.ReactNode} props.children - The child components that will consume the context.
  * @returns {JSX.Element} - The context provider wrapping child components.
  */
-export const DataProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}): JSX.Element => {
+export const DataProvider = ({ children }: { children: React.ReactNode }): JSX.Element => {
   /** State for storing fetched data and its updater. */
   const [data, setData] = useState<FetchedDataProps[]>([]);
 
@@ -48,17 +43,11 @@ export const DataProvider = ({
       setData(newData);
     } catch (error) {
       console.error('Error fetching data:', error);
-      Sentry.captureException(
-        new Error(`Error Fetching Data: ${error}`)
-      );
+      Sentry.captureException(new Error(`Error Fetching Data: ${error}`));
     }
   };
 
-  return (
-    <DataContext.Provider value={{ data, fetchData }}>
-      {children}
-    </DataContext.Provider>
-  );
+  return <DataContext.Provider value={{ data, fetchData }}>{children}</DataContext.Provider>;
 };
 
 export default DataContext;
